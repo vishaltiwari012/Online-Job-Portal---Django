@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+            .preloader{
+    background-color:white;
+    height: 100%;
+    width:100%;
+    position: fixed;
+    z-index: 999;
+    top:0;
+    left:0;
+}
+.preloader img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 30%;
+}
+    marquee{
+    color:black;
+    }
+     @media only screen and (max-width:765px) {
+        .notice{
+        margin-top:10%;
+        }
+        }
+        input[type='submit']{
+        margin-top:2%;width:40%;height:60px;background:#0e73f0;
+        border-radius:5px;font-size:18px;font-weight:500;border:none;
+        font-family: 'Ubuntu', sans-serif;
+        }
+</style>
+<!--<div class="preloader">
+   <img src="{% static 'images/preloader.gif' %}" alt=""><br>
+  </div>-->
+
+
+<!--Slider Starts-->
+        <div class="col-sm-9" style="margin-top:-20px;padding:0px">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="slides#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for  -->
+    <div class="carousel-inner">
+      <div class="item active">
+          <img src="{% static 'images/slider-4.png' %}" alt="Los Angeles" style="height:400px;width:100%" class="img img-responsive">
+      </div>
+
+      <div class="item">
+          <img src="{% static 'images/slider-2.jpg' %}" alt="Chicago" style="height:400px;width: 100%" class="img img-responsive">
+      </div>
+
+      <div class="item">
+        <img src="{% static 'images/slider-3.png' %}" alt="New York" style="height:400px;width:100%" class="img img-responsive">
+      </div>
+        <div class="item">
+          <img src="{% static 'images/slider-1.jpg' %}" alt="Los Angeles" style="height:400px;width:100%" class="img img-responsive">
+      </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+   </div>
+            <div class="col-sm-3 notice" style="margin-top:-30px;padding:0px;
+            border-right:1px solid black;border-bottom:1px solid black;min-height:410px">
+                <h4 style="color:black;min-height:40px;padding:15px;
+    border-bottom:1px solid black;font-family:'Ubuntu',sans-serif;text-decoration:underline;font-weight:bold">What's New</h4>
+                 <marquee direction="up" style="min-height:330px;padding:10px;font-weight:bold">
+{% for n in nw %}
+
+ <p> <span class="fa fa-hand-o-right" style="color:red;font-size: 20px"></span> {{n.newstext}}<sup style="color:red;padding-left:3px;font-size:10px;font-weight:bold">NEW</sup></p>
+                     {% endfor %}
+                 </marquee>
+            </div>
+
+
+
+<div class="col-sm-12" style="min-height:50px;background:#183459;padding:12px;">
+    <marquee direction="left" style="color:white;font-size:17px">Public disclosure of marks of Recruitment Agencies&emsp;|&emsp;
+         <font style="background-color:rgb(255, 0, 0);font-weight:bold">Notice
+            against frauds in the name of Jobs</font>&emsp;|&emsp;Please be advised that the website  <a class="cursorHand" style="color:white;"
+              href="#"> <font style="background-color:rgb(255, 0, 0);">www.onlinejobportal.co.in</font></a> is not affiliated
+        in any way to NCS or Ministry of Labour & Employment. Please note that NCS does not charge any fees for registration on the portal and its
+        services.</marquee>
+</div>
+<!--Slider ends-->
+
+
+
+<div class="container">
+            <div class="row">
+                <div class="col-sm-12"  style="margin-top:3%">
+<!--data-aos="fade-down"-->
+                      <div  class="col-sm-6 ">
+                        <img src="{% static 'images/job.jpg'%}" class="img-responsive img-thumbnail" style="width:100%;height:400px;border: none;border-radius:5px"/>
+                    </div>
+                    <div data-aos="zoom-in" class="col-sm-6" style="padding:5%">
+                        <h1 style="font-family:sans-serif;font-weight:bold;font-size:40px">Let the jobs find you</h1>
+                        <p style="font-family: 'Nunito', sans-serif;font-size:20px">Create your free profile to get interview invites <br>and jobs that work for you.</p>
+                        <a href="{% url 'jobseekerreg' %}" class="btn btn-primary btn-lg">Get Hired</a>
+                    </div>
+                </div>
+            </div>
+ </div>
+
+
+
+<div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div data-aos="zoom-in" class="col-sm-6" style="padding:5%">
+                        <h1 style="font-family: sans-serif;font-weight:bold;font-size:40px">Your job is personal</h1>
+                        <p style="font-family: 'Nunito', sans-serif;font-size:20px">Tell us more about your goals and we'll<br> match
+                            you with the right jobs to help you reach them.</p>
+
+                   <a href="{% url 'latest_jobs' %}" class="btn btn-primary btn-lg">See Jobs</a>
+                    </div>
+
+                      <div class="col-sm-6 ">
+                        <img src="{% static 'images/index6.png'%}" class="img-responsive img-thumbnail" style="width:100%;height:400px;border: none;border-radius:5px"/>
+                    </div>
+                </div>
+            </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top:5%">
+                <div class="col-sm-6">
+ <p style="color:goldenrod;border-left:5px solid blue;border-radius:5px;font-family: 'Ubuntu', sans-serif;font-size: 25px">&nbsp;&nbsp;JOBS IN INDIA</p><br>
+                  <p  style="font-family: 'Ubuntu', sans-serif;font-size:18px;text-align:justify;line-height:1.6">The employment field in India has
+                      undergone and is undergoing a sea change with a wide range of opportunities open to youngsters in various fields. Never before
+                      in India’s history have we seen such an interaction between the employers and the potential employees. It has been a two-way
+                      street. MNCs, manufacturing concerns. IT majors, IT- enabled services and others need the right kind of professionals and others
+                      as much as the youngsters need the right kind of openings in different fields.</p>
+                      <p style="font-family: 'Nunito', sans-serif;font-weight:500;
+                      font-size:20px;text-align:justify">“A man is unemployed only when he is both without a job or not
+                          employed and also desires to be employed.” ―Pigou</p>
+              </div>
+            <div class="col-sm-6">
+       <img src="{% static 'images/index1.jpg'%}" class="img-responsive img-thumbnail" style="width:100%;border: none;margin-top:25px"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top:5%">
+    <div class="row">
+        <div class="col-sm-12" style="border-radius: 2px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);">
+             <h2 style="text-align: center;font-family: 'Ubuntu', sans-serif;">-HOW <span style="color:blue;font-size: 34px">WE WORK-</span></h2>
+                    <hr style="width:15%;height: 2px;background: #183459;border-radius: 5px;margin-top:-8px">
+            <div class="col-sm-3 panel panel-body text-center" >
+                <img src="{% static 'images/index2.png'%}" class="hvr hvr-bounce-out" style="width: 110px; height: 110px;"><br><br>
+                 <p style="font-size: 18px;color: black;text-align: center;font-family: 'Ubuntu',sans-serif;">POST YOUR JOB</p>
+                <hr style="height:3px;width:20%;outline:none;background:#183459;border-radius:5px;margin-top:-3%">
+                <p style="font-family: 'Ubuntu', sans-serif;font-size: 14px;color:black">Fill a simple form to tell us your requirements.</p>
+
+            </div>
+            <div class="col-sm-3 panel panel-body text-center">
+                <img src="{% static 'images/index3.png'%}" class="hvr hvr-bounce-out" style="width: 110px; height: 110px;"><br><br>
+                <p style="font-size: 18px;color: black;text-align: center;font-family: 'Ubuntu',sans-serif;">WE ADVERTISE YOUR JOB</p>
+                <hr style="height:3px;width:20%;outline:none;background:#183459;border-radius:5px;margin-top:-3%">
+                 <p style="font-family: 'Ubuntu', sans-serif;font-size: 14px;color:black">We publish your job to candidates on WorkIndia App
+                     that match your profile.</p>
+            </div>
+            <div class="col-sm-3 panel panel-body text-center">
+                <img src="{% static 'images/index4.png'%}" class="hvr hvr-bounce-out" style="width: 110px; height: 110px;"><br><br>
+                <p style="font-size: 18px;color: black;text-align: center;font-family: 'Ubuntu',sans-serif;">CANDIDATES CALL YOU</p>
+                <hr style="height:3px;width:20%;outline:none;background:#183459;border-radius:5px;margin-top:-3%">
+                 <p style="font-family: 'Ubuntu', sans-serif;font-size: 14px;color:black">Active job seekers who are interested in your job call
+                     you on your phone for interview.</p>
+            </div>
+            <div class="col-sm-3 panel panel-body text-center">
+                <img src="{% static 'images/index5.png'%}" class="hvr hvr-bounce-out" style="width: 110px; height: 110px;"><br><br>
+                <p style="font-size: 18px;color: black;text-align: center;font-family: 'Ubuntu',sans-serif;">TAKE INTERVIEW & HIRE</p>
+                <hr style="height:3px;width:20%;outline:none;background:#183459;border-radius:5px;margin-top:-3%">
+                 <p style="font-family: 'Ubuntu', sans-serif;font-size: 14px;color:black">From the calls you get, invite relevant people for interview &
+                     hire the best ones.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top:3%">
+    <h2 style="text-align: center;font-family: 'Ubuntu', sans-serif;">SUPPORT WITH <span style="color:#69d13d;font-size: 34px">COMPANIES</span></h2>
+                    <hr style="width:15%;height: 2px;background: #183459;border-radius: 5px;margin-top:-8px">
+    <div class="row">
+                    <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/google.jpg'%}" class="img-responsive hvr hvr-bounce-out" style="width:100%"/>
+                        <br /><br />
+                    </div>
+
+                    <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/microsift.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 70%;" />
+                        <br /><br />
+                    </div>
+                    <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/intel.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 70%;" />
+                        <br /><br />
+                    </div>
+                 <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/hpl.png'%}" class="img-responsive hvr hvr-bounce-out" style="width:60%" />
+                        <br /><br />
+                    </div>
+
+                    <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/amaz.jpg'%}" class="img-responsive hvr hvr-bounce-out" style="width: 120%" />
+                        <br /><br />
+                    </div>
+                    <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/wipro.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 100% " />
+                        <br /><br />
+                    </div>
+                </div>
+     <div class="row">
+                    <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/face.png' %}" class="img-responsive hvr hvr-bounce-out" style="width:100%"/>
+                        <br /><br />
+                    </div>
+
+                    <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/walmart.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 100%;" />
+                        <br /><br />
+                    </div>
+         <div data-aos="fade-right" class="col-sm-2">
+                        <img src="{% static 'images/apple.png'%}" class="img-responsive hvr hvr-bounce-out" style="width:70%" />
+                        <br /><br />
+                    </div>
+                    <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/meta.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 50%" />
+                        <br /><br />
+                    </div>
+                    <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/tcs.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 100%;" />
+                        <br /><br />
+                    </div>
+                    <div data-aos="fade-left" class="col-sm-2">
+                        <img src="{% static 'images/uber.png'%}" class="img-responsive hvr hvr-bounce-out" style="width: 100% " />
+                        <br /><br />
+                    </div>
+                </div>
+</div>
+ <script>
+            $(window).on("load",function(){
+                $(".preloader").delay(1500).fadeOut();
+            })
+        </script>
+{% endblock %}
+
+
+

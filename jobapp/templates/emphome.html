@@ -1,0 +1,41 @@
+{% extends "empbase.html" %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 panel panel-body" style="margin-top:10%">
+             <div class="carousel-caption">
+          <h3 style="color:black;font-size: 50px;
+          font-family:'Ubuntu',sans-serif;"> Hello, {% for n in emp %} {{n.cpname}}  {% endfor %} </h3>
+        </div>
+    </div>
+</div>
+
+ <div class="row">
+                <div class="col-sm-12 panel panel-body" style="margin-top:-5%">
+                    <div  class="col-sm-6" style="text-align:justify;padding:22px;margin-top: 22px">
+                        <p style="color:blue;border-left:5px solid red;font-family: 'Ubuntu', sans-serif;font-size: 25px;border-radius:5px">&nbsp;&nbsp;WHO IS EMPLOYER</p><br>
+                        <p style="color:black;font-family: 'Ubuntu', sans-serif;font-size: 20px">
+                            The employer definition is an individual or an organization in the government, private, nonprofit, or business sector
+                            that hires and pays people for their work. As the authority within an organization, the employer defines the terms of
+                            employment for employees and provides the agreed-upon terms such as the salary.</p>
+
+                    </div>
+                    <div  data-aos-easing="linear" data-aos-duration="1500" class="col-sm-6 ">
+                        <img src="{% static 'images/emp2.jpg'%}" class="img-responsive" style="width:580px;height:370px;margin-top:15px;"/>
+                    </div>
+
+                </div>
+            </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div  class="col-sm-12" style="padding:0px">
+            <img src="{% static 'images/emp1.jpg' %}" class="img-responsive" style="margin-top:-20px;width:100%;height:400px">
+        </div>
+    </div>
+</div>
+{% endblock body %}

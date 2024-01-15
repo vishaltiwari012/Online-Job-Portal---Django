@@ -1,0 +1,52 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-12 panel panel-body" style="overflow-x:scroll;border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);margin-top:3%">
+    <p style="color:black;text-align:center;text-decoration:underline;font-size:38px;font-family: 'Ubuntu', sans-serif;margin-top:1%">JobSeekers List</p><br>
+    <table class="table table-hover" border="2" id="myTable">
+        <thead>
+        <tr style="background-color:lightgrey;border:2px solid black;color:black">
+            <th>S.No.</th>
+            <th>Profile Photo</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Contact No</th>
+            <th>Email Address</th>
+            <th>Address</th>
+            <th>Date Of Birth</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Keyskills</th>
+            <th>Registration Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for j in js %}
+        <tr >
+            <td>{{forloop.counter}}</td>
+            <td><img src="{{j.image.url}}" style="height:100px;width:100px"></td>
+            <td>{{j.name}}</td>
+            <td>{{j.gender}}</td>
+            <td>{{j.contactno}}</td>
+            <td>{{j.emailaddress}}</td>
+            <td>{{j.address}}</td>
+            <td>{{j.dob}}</td>
+            <td>{{j.qualification}}</td>
+            <td>{{j.experience}}</td>
+            <td>{{j.keyskills}}</td>
+            <td>{{j.regdate}}</td>
+            <td><a href="{% url 'delete_js' id=j.emailaddress %}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+
+{% endblock %}

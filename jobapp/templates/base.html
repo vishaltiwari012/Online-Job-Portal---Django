@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/hover.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+             <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+     <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <title>base</title>
+    <style>
+             ::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    background: #183459;
+}
+         .social a img{
+    width: 25px;
+    margin-left:7%;
+    padding-top:14px;
+    margin-bottom:2%;
+        }
+        @media only screen and (max-width:765px) {
+        .social a img{
+        font-size:30px;
+        padding-top:2%;
+        padding-right:5px;
+        margin-bottom:10px;
+        }
+        }
+.site-footer
+{
+  background-color:#183459;;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer h6
+{
+  color:goldenrod;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px;
+  border-left:3px solid red;
+  border-radius:2px;
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+
+
+.site-footer .social-icons
+{
+  text-align:right;
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#black;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe;
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998;
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced;
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6;
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89;
+}
+
+.site-footer ul {
+padding:0;
+list-style:none;
+line-height:2;
+font-size:13px;
+margin-bottom:0;
+letter-spacing:0;
+font-family: 'Open Sans', sans-serif;
+}
+.site-footer ul li a {
+color:white;
+text-decoration:none;
+ font-size:14px;
+}
+ .site-footer ul a:hover {
+      color:orange;
+      cursor: pointer;
+    }
+    .site-footer ul li i{
+    color:white;
+    }
+    .copyright {
+     text-align:center;
+     padding-top:5px;
+       font-size:16px;
+        margin-bottom:0;
+        font-family: 'Ubuntu', sans-serif;
+        color:white;
+    }
+     #button{
+    display: inline-block;
+    background-color:blueviolet;
+    width:50px;
+    height:50px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom:30px;
+    right:30px;
+    transition: background-color .3s;
+    opacity: .5s,visibility .5s;
+    opacity: 1;
+    z-index: 1000;
+    cursor: pointer;
+}
+#button:hover{
+       background-color: #333;
+}
+#button i{
+    font-size: 35px;
+    color:white;
+}
+#button i:hover{
+    cursor: pointer;
+}
+#button.show{
+    opacity: 1;
+}
+#menu{
+color:white;
+}
+#menu:hover{
+color:black;
+background:goldenrod;
+border-radius:8px;
+}
+        </style>
+</head>
+<body>
+  <a id="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+<!--  <div class="container-fluid">-->
+<!--    <div class="row bg-info text-dark text-center">-->
+<!--        <div class="col-sm-12">-->
+<!--            <div class="col-sm-6 social">-->
+<!--               <a href="#"><img src="{% static 'images/facebook.png' %}" alt="facebook"></a>-->
+<!--                            <a href="#"><img src="{% static 'images/instagram.png' %}" alt="inatagram"></a>-->
+<!--                            <a href="#"><img src="{% static 'images/youtube.png' %}" alt="youtube"></a>-->
+<!--                            <a href="#"><img src="{% static 'images/linkedin.png' %}" alt="linkedin"></a>-->
+<!--                            <a href="#"><img src="{% static 'images/gmail.png' %}" alt="gmail"></a>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            <div class="col-sm-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>Translate this page:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div id="google_translate_element" style="margin-top:-15px"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12" style="padding:0px;">
+              <marquee style="font-family:'Monotype Corsiva';font-size:25px;color:white;background:#183459;">ONLINE JOB PORTAL</marquee>
+          </div>
+      </div>
+  </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" style="min-height:100px;">
+            <div class="col-sm-1"></div>
+                        <div class="col-sm-2">
+                <img src="{% static 'images/logo.png' %}" class="img img-responsive" style="width:140px;height:80px;margin-top:3%"/>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                <img src="{% static 'images/Picture1.png' %}" class="img img-responsive" style="width:100%;height:80px;margin-top:3%"/>
+            </div>
+               <div class="col-sm-2"></div>
+<div class="col-sm-2">
+     <img src="{% static 'images/logo1.png' %}" class="img img-responsive" style="width:150px;height:90px;margin-top:2%;background:none"/>
+</div>
+             <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>
+
+
+<!--Header area-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" style="padding:0px">
+            <nav class="navbar navbar-inverse" style="background:#183459; min-height: 70px;
+            border-radius: 0px;border-top: none;padding-top:10px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="color:white;font-family: 'Ubuntu', sans-serif;font-size:30px;">Online Job Portal</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'index' %}" id="menu" class="hvr hvr-glow">HOME</a></li>
+          <li><a href="{% url 'about' %}" id="menu" class="hvr hvr-glow">ABOUT US</a></li>
+          <li><a href="{% url 'latest_jobs' %}" id="menu" class="hvr hvr-glow">LATEST JOBS</a></li>
+                  <li><a href="{% url 'contact' %}" id="menu" class="hvr hvr-glow">CONTACT US</a></li>
+          <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" id="menu" href="#" class="hvr hvr-glow">REGISTRATION
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'jobseekerreg' %}"  class="hvr hvr-glow">JOBSEEKER </a></li>
+          <li><a href="{% url 'employerreg' %}"  class="hvr hvr-glow">RECRUITER</a></li>
+
+        </ul>
+      </li>
+        <li><a href="{% url 'login' %}" id="menu" class="hvr hvr-glow">LOGIN</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+        </div>
+    </div>
+</div>
+    <!--Header area end-->
+
+
+
+
+
+
+{% block body%}
+
+
+{% endblock %}
+
+<!-footer-->
+<div class="container-fluid" style="padding:0px;margin-top:3%">
+<footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h6>&nbsp;&nbsp;About</h6>
+            <p class="text-justify" style="color:white;">
+             The Online Job Portal is an intermediate between Jobseekers and Employers. The purpose is to
+                                            enable the Jobseekers to search for the jobs from any remote location. The Jobseeker
+                                            can Search for the jobs which with the Consultancy without actually visiting the
+                                            Consultancy.
+            </p>
+          </div>
+<div class="col-sm-1"></div>
+          <div class="col-sm-3">
+              <h6>&nbsp;&nbsp;Contact Info</h6>
+                                        <ul class="footer-links">
+                                            <li><i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="#">+91-8********6</a></li>
+                                            <li><i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="#">onlinejobportal@gmail.com</a></li>
+                                            <li><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<a href="#">Kurebhar, Sultanpur, U.P. 228151</a></li>
+                                        </ul>
+          </div>
+
+          <div class="col-sm-4">
+            <h6>&nbsp;&nbsp;Locate Us</h6>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227822.55035783394
+                                        !2d80.80242639237173!3d26.848622993350485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1
+                                        s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1
+                                        661544271400!5m2!1sen!2sin" width="600" height="450" style="border:0;width:100%;height:200px;margin-top:5px" ></iframe>
+
+          </div>
+        </div>
+
+        <hr style="height: 3px;background:aliceblue;border-radius: 5px;outline: none;border: none">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright">Copyright &copy; 2023 All rights reserved | Designed & Developed By Er. Vishal Tiwari and his team.</p>
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+</div>
+<!-footer end->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init( {
+   offset: 120, // offset (in px) from the original trigger point
+   duration: 1000,
+    });
+  </script>
+               <script>
+var btn=$('#button');
+$(window).scroll(function() {
+    if($(window).scrollTop() > 300){
+        btn.addClass('show');
+    }
+    else {
+        btn.removeClass('show');
+    }
+});
+btn.on('click',function(e) {
+    e.preventDefault();
+    $('html,body').animate({scrollTop:0},900);
+});
+
+    </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+ <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+   <script>
+let table = new DataTable('#myTable');
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends "jobbase.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" style="padding:0px">
+            <img src="{% static 'images/job4.jpg' %}" class="img-responsive" style="margin-top:-20px;width:100%;height:380px">
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-12 panel panel-body" style="border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);margin-top:3%">
+   <p style="color:black;text-align:center;text-decoration:underline;font-size:38px;font-family: 'Ubuntu', sans-serif;margin-top:1%">Jobs List</p><br>
+    <table class="table table-hover" border="2" id="myTable">
+        <thead>
+        <tr style="background-color:lightgrey;border:2px solid black;color:black">
+            <th>S.No.</th>
+            <th>Company Logo</th>
+            <th>Firm Name</th>
+            <th>Job Title</th>
+            <th>Start Date</th>
+            <th>Last Date</th>
+            <th>Post</th>
+            <th>Qualification</th>
+            <th>Location</th>
+            <th>Apply</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for j in jb %}
+        <tr>
+             <td>{{forloop.counter}}</td>
+            <td><img src="{{j.img.url}}" style="height:100px;width:100px;border-radius:50%"></td>
+            <td>{{j.firmname}}</td>
+            <td>{{j.jobtitle}}</td>
+            <td>{{j.start_date}}</td>
+            <td>{{j.end_date}}</td>
+            <td>{{j.post}}</td>
+            <td>{{j.qualification}}</td>
+            <td>{{j.location}}</td>
+            {% if j.id in data %}
+            <td><a class="btn btn-success">Applied</a></td>
+            {% else %}
+            <td><a href="{% url 'job_detail' id=j.id %}" class="btn btn-danger">Apply</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+label{
+font-size:15px;
+font-weight:500;
+color:black;
+}
+  .form-control:focus{
+    box-shadow: none;
+    border: 1px solid black;
+}
+#input{
+width: 100%;
+border: 1px solid black;
+font-family: "Poppins", sans-serif;
+font-size: 15px;
+padding:10px;
+color: black;
+border-radius: 1px;
+outline: none;
+resize: none;
+overflow-y: auto;
+}
+#input:focus{
+    outline: none;
+    box-shadow: none;
+}
+#input::placeholder {
+color: black;
+font-size: 14px;
+}
+input[type='text'],input[type='email'] ,input[type='number'],input[type='password'],input[type='file']{
+    height: 40px;
+    border:none;
+    border: 1px solid black;
+    background: transparent;
+    border-radius: 0px;
+    outline: none;
+    color: black;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button{
+    appearance: none;
+    margin: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+input[type='text']::placeholder,input[type='email']::placeholder,
+input[type='number']::placeholder,input[type='password']::placeholder{
+    color:black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+ input[type='submit'] {
+            height: 35px;
+            width: 70%;
+            align-items: center;
+            justify-content: center;
+            background-color:rgb(74, 122, 252);
+            border: none;
+            outline: none;
+            border-radius: 3px;
+margin-top: 2%;
+        }
+
+        input[type='submit']:hover{
+            background-color: blue;
+            transition: 1s;
+        }
+        .panel{
+margin-top:3%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);
+}
+#request{
+font-size: 30px;
+font-weight: 500;
+color: blue;
+}
+#send{
+margin-left: 2%;
+font-size:30px;
+}
+#hr1{
+border: none;
+outline: none;
+width:20%;
+height: 4px;
+background-color:#4d18c9;
+margin-left: 2%;
+border-radius: 5px;
+margin-top: -5px;
+animation: animate1 4s linear infinite;
+}
+@keyframes animate1 {
+    0%{
+        width:50px;
+    }
+    50%{
+        width:200px;
+    }
+    100%{
+        width:50px;
+    }
+}
+</style>
+            <script>
+                  {% if msg %}
+               alert('{{msg}}')
+               {% endif %}
+             </script>
+<script>
+    function checknum(){
+    var mobile=document.getElementById('mobile');
+    var aadhar=document.getElementById('aadhar');
+    var pan=document.getElementById('pan');
+    var gst=document.getElementById('gst');
+    if(mobile.value.length!=10)
+    {
+    mobile.style.border="2px solid red";
+    alert('Please put 10 digit contact number');
+    return false;
+    }
+    else if(aadhar.value.length!=12)
+    {
+    aadhar.style.border="2px solid red";
+    alert('Please put 12 digit aadhar number');
+    return false;
+    }
+    else if(pan.value.length!=10)
+    {
+    pan.style.border="2px solid red";
+    alert('Please put 10 digit pan number');
+    return false;
+    }
+    else if(gst.value.length!=15)
+    {
+    gst.style.border="2px solid red";
+    alert('Please put 15 digit gst number');
+    return false;
+    }
+    return true;
+    }
+</script>
+   <div class="container">
+            <div class="row">
+                <div class="col-sm-12 panel panel-body" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="800">
+                    <h3 id="send">Recruiter <span id="request">Registration Form</span></h3>
+                    <hr id="hr1"><br>
+                    <form action="{% url 'ereg' %}" method="post" onsubmit="return checknum()" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                   <div class="form-group col-sm-6">
+                    <label>Company Name</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="text" class="form-control" placeholder="Enter company name" name="firm_name" required="true" >
+                   </div>
+
+
+
+                   <div class="form-group col-sm-6">
+                    <label>Contact Person Name</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="text" class="form-control" placeholder="Enter contact person name" name="cpname" required>
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label>Contact No</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="number" class="form-control" placeholder="Enter contact no" name="cpcontactno" id="mobile" required>
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label>Email</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="email" class="form-control" placeholder="Enter email" name="cpemailaddress" required>
+                   </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Password</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                            <input type="password" class="form-control" placeholder="Enter password" name="password" required>
+                           </div>
+
+                    <div class="form-group col-sm-6">
+                    <label>Aadhar No.</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="number" class="form-control" placeholder="Enter aadhar no" name="aadharno" id="aadhar" required>
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label>PAN No.</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="text" class="form-control" placeholder="Enter pan no" name="panno" id="pan" required>
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label>GST No.</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="text" class="form-control" placeholder="Enter gst no" name="gstno" id="gst" required>
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label>Company Address</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="text" class="form-control" placeholder="Enter company address" name="firm_address"  required>
+                   </div>
+                        <div class="form-group col-sm-6">
+                    <label>Profile Photo</label> <span style="color:red;font-size:15px;font-weight:bold">*</span>
+                    <input type="file" class="form-control" name="photo" >
+                   </div>
+
+                    <div class="col-sm-6">
+                          <input type="submit" value="Register Now" class="btn btn-success">
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

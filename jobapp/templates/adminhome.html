@@ -1,0 +1,43 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+<h1 class="text-center text-danger" style="text-decoration:underline">News and Events Management</h1>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6" style="margin-top:2%">
+        <form action="{% url 'addnews' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Enter News</label>
+                <textarea name="newstext" class="form-control"></textarea>
+            </div>
+            <br>
+            <input type="submit" value="Add" class="btn btn-info">
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+    </div>
+    </div>
+</div>
+    <div class="container" style="margin-top:3%">
+    <table class="table table-hover" border="2">
+        <tr>
+            <th>S.No.</th>
+            <th>News Text</th>
+            <th>News Date</th>
+            <th>Action</th>
+        </tr>
+{% for n in nw %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{n.newstext}}</td>
+            <td>{{n.newsdate}}</td>
+            <td><a href="{% url 'edit_news' id=n.id %}" class="btn btn-primary btn-sm">Edit</a>&nbsp;<a href="{% url 'deletenews' id=n.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+ {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "jobbase.html" %}
+{% load static %}
+
+{% block body %}
+<marquee style="font-family:'Monotype Corsiva';font-size:25px;color:white;background:black">Job Details</marquee>
+<hr>
+<div class="container panel panel-body" style="box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{job.img.url}}" style="height:200px;width:300px;border-radius:10%">
+        </div>
+        <div class="col-md-6">
+           <h2>{{job.jobtitle}}</h2>
+            <p>{{job.firmname}} <em><a href="{% url 'applyjob' %}">(View All Jobs)</a></em></p>
+            <a href="#" style="color:black"><i class="fa fa-map-marker"  style="margin-right:5px">&nbsp;&nbsp;</i>{{job.location}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" style="color:black;" ><i class="glyphicon glyphicon-calendar" style="margin-right:7px"></i>{{job.start_date}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" style="color:black"><i class="glyphicon glyphicon-calendar"  style="margin-right:7px"></i>{{job.end_date}}</a>
+            <br>
+            <strong>
+                <i class="fa fa-money" style="margin-top:3%">&nbsp;&nbsp;&nbsp;<i class="fa fa-inr"></i> <span style="font-size:17px">{{job.salarypa}} lakh Per Annum</span> </i>
+            </strong><br><br>
+            <div>
+            <a href="{% url 'applyforjob' id=job.id %}" class="btn btn-danger">Apply for this job</a>
+                </div>
+        </div>
+    </div>
+<br>
+        <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);min-height:100px">
+        <p style="font-weight:bold;font-family:caliberi;font-size:20px">Overview</p>
+        <p style="color:black;font-size:15px">{{job.jobdesc}}</p>
+</div>
+         <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+         <p style="font-weight:bold;font-family:caliberi;font-size:20px">Required Experience</p>
+        <p style="color:black;font-size:15px">{{job.experience}}</p>
+</div>
+              <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+         <p style="font-weight:bold;font-family:caliberi;font-size:20px">Skills Required</p>
+        <p style="color:black;font-size:15px">{{job.skills}}</p>
+</div>
+                   <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+         <p style="font-weight:bold;font-family:caliberi;font-size:20px">Start Date for Applying</p>
+        <p style="color:black;font-size:15px">{{job.start_date}}</p>
+</div>
+                        <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+         <p style="font-weight:bold;font-family:caliberi;font-size:20px">Last Date for Applying</p>
+        <p style="color:black;font-size:15px">{{job.end_date}}</p>
+                            </div>
+        <div class="col-sm-12 panel panel-body" style="border-radius: 2px;box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);">
+         <p style="font-weight:bold;font-family:caliberi;font-size:20px">Job Type</p>
+        <p style="color:black;font-size:15px">{{job.jobtype}}</p>
+                            </div>
+    </div>
+{% endblock %}

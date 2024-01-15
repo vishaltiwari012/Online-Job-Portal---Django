@@ -1,0 +1,69 @@
+{% extends "empbase.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container panel panel-body" style="border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);">
+    <h3 class="text-center" style="text-decoration:underline">Jobseeker Complete Details</h3><br>
+    <table class="table table-hover" border="2">
+         <tr>
+                 <th>Profile Photo</th>
+                <td><img src="{{obj.student.image.url}}" style="height:100px;width:100px;"></td>
+    </tr>
+
+    <tr>
+                 <th>Full Name</th>
+                <td>{{obj.student.name}}</td>
+    </tr>
+
+        <tr>
+            <th>Gender</th>
+            <td>{{obj.student.gender}}</td>
+        </tr>
+
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{obj.student.dob}}</td>
+        </tr>
+
+        <tr>
+            <th>Contact No</th>
+            <td>{{obj.student.contactno}}</td>
+        </tr>
+
+        <tr>
+            <th>Emailaddress</th>
+            <td>{{obj.student.emailaddress}}</td>
+        </tr>
+
+        <tr>
+            <th>Qualification</th>
+            <td>{{obj.student.qualification}}</td>
+        </tr>
+
+        <tr>
+            <th>Experience</th>
+            <td>{{obj.student.experience}}</td>
+        </tr>
+
+        <tr>
+            <th>Keyskills</th>
+            <td>{{obj.student.keyskills}}</td>
+        </tr>
+
+        <tr>
+            <th>Address</th>
+             <td>{{obj.student.address}}</td>
+        </tr>
+
+                <tr>
+            <th>Applied Date</th>
+            <td>{{obj.applydate}}</td>
+        </tr>
+        <tr>
+            <th>Resume</th>
+            <td><a href="{{obj.resume.url}}" class="btn btn-primary">Download Resume</a></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

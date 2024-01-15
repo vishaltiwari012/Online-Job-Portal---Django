@@ -1,0 +1,123 @@
+{% extends "jobbase.html" %}
+{% load static %}
+
+{% block body %}
+<style>
+     input[type='button']{
+        margin-top:2%;width:40%;height:60px;background:white;
+        border-radius:5px;font-size:22px;font-weight:500;border:2px solid blue;
+        font-family: 'Ubuntu', sans-serif;
+        color:blue;
+        }
+         input[type='submit']{
+        margin-top:2%;width:40%;height:60px;background:white;
+        border-radius:5px;font-size:22px;font-weight:500;border:2px solid blue;
+        font-family: 'Ubuntu', sans-serif;
+        color:blue;
+        }
+</style>
+<!--<div class="alert alert-info" role="alert" style="font-size:20px;color:black;margin-top:-2%">
+  Login Successfull!!...Jobseeker
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+
+</button>
+    </div>
+<script>
+    $('#myAlert').on('closed.bs.alert', function () {
+})
+</script>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top:12%">
+             <div class="carousel-caption">
+          <h3 style="color:black;font-size: 50px;
+          font-family:'Ubuntu',sans-serif;">Hello, {% for n in js %} {{n.name}}  {% endfor %}</h3>
+        </div>
+    </div>
+</div>
+</div>
+
+ <div class="container">
+                 <div class="row">
+                <div class="col-sm-12" style="margin-top:3%;">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <p style="color:#4b1866;font-family: 'Ubuntu', sans-serif;font-size: 35px;text-align:center;font-weight: bold">
+                "Choose a job you love, and you will never have to work a day in your life."</p>
+                </div>
+            <div class="col-sm-1"></div>
+              </div>
+
+        </div>
+            </div>
+
+
+ <div class="container">
+            <div class="row">
+                <div class="col-sm-12 panel panel-body" style="margin-top:3%;">
+                    <div data-aos="fade-right" class="col-sm-6" style="text-align:justify;padding:22px;margin-top: 22px">
+                        <p style="color:blue;border-left:5px solid red;font-family: 'Ubuntu', sans-serif;font-size: 25px;border-radius:5px">&nbsp;&nbsp;WHAT IS JOBSEEKER</p><br>
+                        <p style="color:black;font-family: 'Ubuntu', sans-serif;font-size: 20px">
+                    Job seeker refers to an individual who is actively looking for an employment opportunity/job and has submitted an application to the employer.
+<p  style="color:black;font-family: 'Ubuntu', sans-serif;font-size: 22px;font-weight:bold">Types of job seekers</p>
+                        <ol style="color:black;font-family: 'Ubuntu', sans-serif;font-size: 16px;">
+                            <li>Those who seek: actively searching for a job</li>
+                            <li>Those who monitor: not actively searching but keeping their eye on roles and opportunities</li>
+                            <li>Those who are settled: not doing anything to look for a new job</li>
+                        </ol>
+                    </div>
+                    <div data-aos="fade-down" class="col-sm-6 ">
+                        <img src="{% static 'images/job2.png'%}" class="img-responsive" style="width:580px;height:370px;border-radius:10px;margin-top:25px;background:none"/>
+                    </div>
+
+                </div>
+            </div>
+ </div>
+
+
+<!--<div class="container">
+            <div class="row">
+                <div class="col-sm-12 panel panel-body">
+                                        <div data-aos="zoom-in" class="col-sm-6 ">
+                        <img src="{% static 'images/job3.png'%}" class="img-responsive" style="width:580px;height:370px;border-radius:10px;margin-top:25px;background:none"/>
+                    </div>
+
+                    <div data-aos="fade-left" class="col-sm-6" style="text-align:justify;padding:6%">
+                        <h1 style="font-family:'Ubuntu',sans-serif;font-weight:bold;font-size:40px">
+                We're not your typical job site</h1>
+                        <p style="font-family: 'Ubuntu', sans-serif;font-size:20px">Getwork is different and makes it easier to find your next great opportunity.</p>
+                  <input type="button" value="Find out how" class="btn btn-primary" onclick="alert('Coming soon...!!')">
+                    </div>
+                </div>
+            </div>
+ </div>
+
+ <div class="container">
+            <div class="row">
+                <div class="col-sm-12 panel panel-body" style="margin-top:3%;">
+                    <div data-aos="fade-right" class="col-sm-6" style="text-align:justify;padding:22px;margin-top: 22px">
+                         <h1 style="font-family:'Ubuntu',sans-serif;font-weight:bold;font-size:40px;">
+               Build your team,<br>
+                    find your mission</h1>
+                        <p style="font-family:'Ubuntu',sans-serif;font-size:20px">Join the world's #1 startup community specialized in
+                            technical talent and opportunities</p><input type="submit" value="Find a job" class="btn btn-primary"  onclick="alert('Coming soon...!!')">
+                    </div>
+                    <div data-aos="fade-down" class="col-sm-6 ">
+                        <img src="{% static 'images/job5.png'%}" class="img-responsive" style="width:600px;height:400px;border-radius:10px;margin-top:25px;background:none"/>
+                    </div>
+
+                </div>
+            </div>
+ </div>-->
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12" style="padding:0px;margin-top:2%">
+            <img src="{% static 'images/job1.jpg' %}" class="img-responsive" style="margin-top:-20px;width:100%">
+        </div>
+
+    </div>
+</div>
+{% endblock %}

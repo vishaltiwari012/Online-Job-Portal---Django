@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/hover.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        #menu{
+color:white;
+}
+#menu:hover{
+color:black;
+background:goldenrod;
+border-radius:8px;
+}
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12" style="padding:0px">
+              <marquee style="font-family:'Monotype Corsiva';font-size:25px;color:white;background:#183459;">ONLINE JOB PORTAL -- JOBSEEKER </marquee>
+          </div>
+      </div>
+  </div>
+   <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-12" style="padding:0px;margin-top:-4px">
+             <nav  class="navbar navbar-inverse" style="background:#183459; min-height: 70px;
+            border-radius: 0px; border:1px solid black;border-top: none;padding-top:10px" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="#" style="color:white;font-family: 'Ubuntu', sans-serif;font-size:30px;">Online Job Portal</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav  navbar-right">
+          <li><a href="{% url 'jobhome' %}" id="menu"  class="hvr hvr-glow">HOME</a></li>
+        <li><a href="{% url 'applyjob' %}" id="menu"  class="hvr hvr-glow">JOBS LIST</a></li>
+           <li><a href="{% url 'user_profile' %}" id="menu"  class="hvr hvr-glow">PROFILE</a></li>
+          <li><a href="{% url 'jobchangepassword' %}" id="menu" class="hvr hvr-glow">CHANGE PASSWORD</a></li>
+          <li><a href="{% url 'joblogout' %}" id="menu" class="hvr hvr-glow" onclick="return confirm('Do you want to log out?')">LOG OUT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+    </div>
+   </div>
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" style="padding:0px;">
+            <h4 style="background:#183459; min-height: 50px; border-radius: 0px;padding-top:15px;color:white;
+            font-family:'Ubuntu',sans-serif;text-align:center">Designed & developed By Er. Vishal Tiwari & his team.</h4>
+        </div>
+</div>
+    </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init( {
+   offset: 120, // offset (in px) from the original trigger point
+   duration: 1000,
+    });
+  </script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+   <script>
+let table = new DataTable('#myTable');
+</script>
+</body>
+</html>

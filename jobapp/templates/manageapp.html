@@ -1,0 +1,41 @@
+{% extends "empbase.html" %}
+{% block body %}
+
+<div class="container-fluid ">
+     <div class="col-sm-1"></div>
+     <div class="col-sm-12 panel panel-body" style="overflow-x:scroll;border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3)">
+    <p style="color:black;text-align:center;text-decoration:underline;font-size:38px;font-family: 'Ubuntu', sans-serif;margin-top:1%">Applied Job Seeker List</p><br>
+    <table class="table table-hover" border="2" id="myTable">
+        <thead>
+ <tr>
+            <th>S.No.</th>
+            <th>Profile Photo</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Job Title</th>
+            <th>Comapny</th>
+            <th>Apply Date</th>
+            <th>Action</th>
+        </tr>
+ </thead>
+        <tbody>
+        {% for a in data %}
+
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td><img src="{{a.student.image.url}}" style="height:100px;width:100px;border-radius:50%"></td>
+            <td>{{a.student.name}}</td>
+            <td>{{a.student.emailaddress}}</td>
+            <td>{{a.job.jobtitle}}</td>
+            <td>{{a.job.firmname}}</td>
+            <td>{{a.applydate}}</td>
+            <td><a href="{% url 'jsprofile' id=a.id %}" class="btn btn-success btn-sm">View More</a></td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+         </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock body %}

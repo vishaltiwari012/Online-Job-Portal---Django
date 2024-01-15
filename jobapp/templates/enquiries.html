@@ -1,0 +1,40 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-12 panel panel-body" style="overflow-x:scroll;border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);">
+
+    <p style="color:black;text-align:center;text-decoration:underline;font-size:38px;font-family: 'Ubuntu', sans-serif;margin-top:1%">Enquiries List</p>
+    <table class="table table-hover" border="2" id="myTable">
+        <thead>
+        <tr style="background-color:lightgrey;border:2px solid black;color:black">
+              <th>S.No.</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Contact No</th>
+            <th>Email Address</th>
+            <th>Message</th>
+            <th>Enquiry Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for e in enq %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.gender}}</td>
+            <td>{{e.contactno}}</td>
+            <td>{{e.emailaddress}}</td>
+            <td>{{e.enquirytext}}</td>
+            <td>{{e.posteddate}}</td>
+            <td><a href="{% url 'delete_enquiry' id=e.emailaddress %}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+      <div class="col-sm-1"></div>
+</div>
+{% endblock %}

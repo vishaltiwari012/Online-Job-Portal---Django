@@ -1,0 +1,39 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block body %}
+
+<script>
+
+
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 panel panel-body" style="border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);">
+                <h3 class="text-center text-capitalize text-primary" style="text-decoration:underline">Change password here</h3>
+                <hr>
+                <form action="{% url 'adminchangepwd' %}" method="post" name="pass">
+                    {% csrf_token %}
+                <div class="form-group">
+                    <label>Old Password</label>
+                    <input type="password" class="form-control" name="o" required="true">
+                </div>
+                 <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" class="form-control" name="n" required="true">
+                </div>
+                 <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" class="form-control" name="c" required="true">
+                </div><br>
+                <input type="submit" value="Submit" class="form-control btn-primary" onclick="return confirm('Do you want to change password?')">
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "jobbase.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 panel panel-body" style="border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);margin-top:3%">
+        <h3 style="color:black;text-align:center;text-decoration:underline;">Apply for Job</h3>
+            <hr>
+        <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group col-sm-12">
+                <label style="font-size:18px">Upload Resume</label>
+                <input type="file" name="resume" class="form-control" accept="application/pdf,application/msword">
+            </div>
+<br>
+            <div class="form-group col-sm-12">
+            <input type="submit" class="form-control btn-primary" value="Submit"></div>
+        </form>
+    </div>
+        <div class="col-sm-3"></div>
+</div>
+</div>
+    </div>
+<script>
+{% if error == "close" %}
+    alert("Application line are close, last date is over");
+    window.location=('{% url 'applyjob' %}');
+{% endif %}
+</script>
+<script>
+    {% if error == "notopen" %}
+    alert("Application is not open.");
+    window.location=('{% url 'applyjob' %}')
+    {% endif %}
+</script>
+<script>
+{% if error == "done" %}
+    alert("Job application has been submitted successfully");
+    window.location=('{% url 'applyjob' %}')
+{% endif %}
+</script>
+{% endblock %}

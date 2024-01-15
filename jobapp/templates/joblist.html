@@ -1,0 +1,38 @@
+{% extends "empbase.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid ">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-12 panel panel-body" style="overflow-x:scroll;border-radius: 5px;box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);margin-top:3%">
+    <p style="color:black;text-align:center;text-decoration:underline;font-size:38px;font-family: 'Ubuntu', sans-serif;margin-top:1%">Manage Job List</p><br>
+    <table class="table table-hover" border="2" id="myTable">
+        <thead>
+        <tr style="background-color:lightgrey;border:2px solid black;color:black">
+            <th>S.No.</th>
+            <th>Company logo</th>
+            <th>Job Title</th>
+            <th>Start Date</th>
+            <th>Last Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for j in job %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+             <td><img src="{{j.img.url}}" style="height:100px;width:100px;border-radius:50%"></td>
+            <td>{{j.jobtitle}}</td>
+            <td>{{j.start_date}}</td>
+            <td>{{j.end_date}}</td>
+            <td><a href="{% url 'edit_jobdetail' id=j.id %}" class="btn btn-success btn-sm">Edit</a> &nbsp;<a href="{% url 'delete_job' id=j.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+             </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+{% endblock body %}
